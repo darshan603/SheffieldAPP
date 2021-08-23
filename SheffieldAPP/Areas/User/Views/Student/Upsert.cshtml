@@ -1,0 +1,98 @@
+﻿@model SheffieldAPP.Models.ViewModels.StudentVM
+@{
+    ViewData["Title"] = "Upsert";
+    string title = "Create Student";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-gradient-lightblue">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (Model.Student.Id != 0)
+            {
+                //edit
+                title = "Edit Student";
+            }
+            <h3 class="card-title" style="font-weight:bold">@title</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Code</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Student.Code" class="form-control" />
+                        <span asp-validation-for="Student.Code" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Student.Name" class="form-control" />
+                        <span asp-validation-for="Student.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Student.Address" class="form-control" />
+                        <span asp-validation-for="Student.Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>City</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Student.City" class="form-control" />
+                        <span asp-validation-for="Student.City" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label>Tp No</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Student.TpNo" class="form-control" />
+                        <span asp-validation-for="Student.TpNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4" style="font-weight:bold">
+                        Grade
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(m => m.Student.GradeId, Model.GradeList, "-Select a Grade",
+                                                     new { @class = "form-control" })
+                        <span asp-validation-for="Student.GradeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4">
+                        @if (Model.Student.Id != 0)
+                        {
+                            <partial name="_EditAndBackToListButton" model="Model.Student.Id" /> }
+                        else
+                        {
+                            <partial name="_CreateAndBackToListButton" />}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+

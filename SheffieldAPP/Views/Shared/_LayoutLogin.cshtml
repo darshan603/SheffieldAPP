@@ -1,0 +1,47 @@
+﻿@using SheffieldAPP.Utility
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    @*<title>@ViewData["Title"] - BulkyBook</title>*@
+    <title>Sheffield</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/theme/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />*@
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+        *@
+    <link href="~/theme/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/theme/plugins/toastr/toastr.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    @RenderBody()
+
+    <!-- jQuery -->
+    <script src="~/theme/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/theme/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/theme/dist/js/demo.js"></script>
+    <script src="https://kit.fontawesome.com/e19c476714.js"></script>
+    <script src="~/theme/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/theme/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/plugins/toastr/toastr.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" id="searchString" />
+        </div>
+        <div class="col-md-2">
+            <button class="form-control btn btn-success" onclick="getSummury()">Search</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-gradient-lightblue">
+            <h3 class="card-title" style="font-weight:bold">Summary</h3>
+        </div>
+        <div class="card-body">
+            <table id="tblData" class="table table-bordered table-hover" style="width:100%">
+                <thead>
+                    <tr class="table-info">
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/Custom/summery.js"></script>
+}
+
+
